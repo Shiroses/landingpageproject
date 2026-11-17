@@ -3,6 +3,13 @@
  * Cambia aquí los enlaces y datos editables sin tocar los componentes.
  */
 
+/**
+ * Enlace del formulario de inscripción (Microsoft Forms).
+ * Es el mismo para la Línea A (Programación) y la Línea B (Inteligencia Artificial).
+ * Lo usa el botón "Inscríbete aquí" de la sección de inscripción.
+ */
+export const INSCRIPCION_URL = "https://forms.cloud.microsoft/r/mZ3awwCtBZ";
+
 /** Número de cupos de la convocatoria 2026. */
 export const CUPOS = 460;
 

@@ -34,10 +34,12 @@ Otros comandos:
 
 ### Sección de inscripción (Línea A y Línea B)
 
-Archivo **`src/components/Inscripcion.tsx`** (arreglo `lineas`). Muestra solo la información de cada línea, sin botones ni enlaces a formularios:
+Archivo **`src/components/Inscripcion.tsx`** (arreglo `lineas`). Muestra, en un solo bloque: el aviso de “Detalles de la convocatoria”, el botón “Inscríbete aquí” y la información de cada línea:
 
 - **Línea A · Programación**: jóvenes de 16 a 28 años, presencial.
 - **Línea B · Inteligencia Artificial**: mayores de 18 años, virtual.
+
+El botón “Inscríbete aquí” abre el formulario de inscripción, que es el mismo para ambas líneas. Su enlace está en la constante `INSCRIPCION_URL` de **`src/config/site.ts`**; si el formulario cambia, reemplázalo ahí.
 
 Los botones “Inscríbete” del encabezado, la portada y el pie de página llevan a esta sección (`#inscripcion`).
 
