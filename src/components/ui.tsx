@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
-import { INSCRIPCION_URL } from "@/config/site";
 
 /** Contenedor horizontal común (ancho máximo + márgenes laterales). */
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -21,18 +20,15 @@ export function Eyebrow({ children, dark = false }: { children: ReactNode; dark?
   );
 }
 
-/** Botón principal de inscripción. Usa INSCRIPCION_URL de src/config/site.ts */
+/** Botón principal: lleva a la sección de inscripción (#inscripcion), donde están las dos líneas. */
 export function InscripcionButton({ className = "", label = "Inscríbete aquí" }: { className?: string; label?: string }) {
-  const externo = INSCRIPCION_URL.startsWith("http");
   return (
     <a
-      href={INSCRIPCION_URL}
-      {...(externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      href="#inscripcion"
       className={`group inline-flex items-center justify-center gap-2 rounded-full bg-lime px-6 py-3 text-base font-semibold text-twilight transition-colors hover:bg-[#6ff08f] ${className}`}
     >
       {label}
       <ArrowRight aria-hidden="true" className="size-5 transition-transform group-hover:translate-x-0.5" />
-      {externo && <span className="sr-only">(abre el formulario en una nueva pestaña)</span>}
     </a>
   );
 }

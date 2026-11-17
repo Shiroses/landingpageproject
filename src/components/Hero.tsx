@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BadgeCheck } from "lucide-react";
+import { CUPOS } from "@/config/site";
 import { Container, InscripcionButton, Stars } from "./ui";
 
 export default function Hero() {
@@ -38,15 +39,15 @@ export default function Hero() {
           <Stars className="mt-4" />
 
           <p className="mt-8 inline-block rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold text-white ring-1 ring-white/15">
-            Curso de Formación Gratuita
+            Curso de Formación Gratuita · 2026
           </p>
           <p className="font-display mt-4 text-3xl leading-tight font-extrabold sm:text-4xl">
             Programación e <span className="text-lime">Inteligencia Artificial</span>
           </p>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-            Una oportunidad de la Gobernación de Santander, FondoPaz y Campuslands para que víctimas del
-            conflicto armado, firmantes de paz y personas en reincorporación y reintegración aprendan
-            habilidades digitales con futuro.
+            <strong className="text-white">{CUPOS} cupos de formación gratuita</strong> de la Gobernación de
+            Santander, FondoPaz y Campuslands para que víctimas del conflicto armado, firmantes de paz y personas
+            en reincorporación y reintegración aprendan habilidades digitales con futuro.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">

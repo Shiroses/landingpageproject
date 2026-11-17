@@ -1,4 +1,5 @@
 import { BrainCircuit, CodeXml, GraduationCap } from "lucide-react";
+import { CUPOS } from "@/config/site";
 import { Container, Eyebrow } from "./ui";
 
 const pilares = [
@@ -32,9 +33,12 @@ export default function Programa() {
           </div>
           <div className="space-y-4 text-lg leading-relaxed text-twilight/80">
             <p>
-              <strong className="text-twilight">Santander Programando Futuro</strong> es un curso de formación
-              gratuita en Programación e Inteligencia Artificial, impulsado por la Gobernación de Santander a
-              través de la Secretaría de Competitividad y Productividad, junto con FondoPaz y Campuslands.
+              La Gobernación de Santander y la Secretaría de Competitividad y Productividad, en convenio con la
+              Fundación Campuslands, te invitan a inscribirte en{" "}
+              <strong className="text-twilight">Santander Programando Futuro 2026</strong>:{" "}
+              <strong className="text-twilight">{CUPOS} cupos de formación gratuita</strong> en Programación e
+              Inteligencia Artificial, exclusivos para la población a la que va dirigida esta convocatoria, con el
+              apoyo de FondoPaz.
             </p>
             <p>
               Su propósito es abrir caminos de aprendizaje y empleabilidad en el sector tecnológico para

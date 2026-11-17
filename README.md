@@ -32,19 +32,22 @@ Otros comandos:
 
 ## ¿Dónde cambio cada cosa?
 
-### Enlace de inscripción
+### Sección de inscripción (Línea A y Línea B)
 
-Archivo **`src/config/site.ts`**, constante `INSCRIPCION_URL`. Todos los botones “Inscríbete aquí” usan este valor.
+Archivo **`src/components/Inscripcion.tsx`** (arreglo `lineas`). Muestra solo la información de cada línea, sin botones ni enlaces a formularios:
 
-> El enlace actual (`https://forms.cloud.microsoft/r/mZ3awwCtBZ`) se obtuvo leyendo el código QR del afiche oficial. **Confírmalo** con el equipo del programa. Si todavía no hay enlace, pon `"#"` y la página mostrará “El enlace de inscripción estará disponible muy pronto”.
+- **Línea A · Programación**: jóvenes de 16 a 28 años, presencial.
+- **Línea B · Inteligencia Artificial**: mayores de 18 años, virtual.
 
-Si el formulario cambia, recuerda reemplazar también la imagen del QR: `public/images/qr-inscripcion.png`.
+Los botones “Inscríbete” del encabezado, la portada y el pie de página llevan a esta sección (`#inscripcion`).
+
+El número de cupos (460) está en la constante `CUPOS` de **`src/config/site.ts`**.
 
 ### Datos pendientes (fechas, duración, horarios, contacto)
 
 También en **`src/config/site.ts`**:
 
-- `DETALLES_CONVOCATORIA`: lista de `{ etiqueta, valor }` (por ejemplo “Duración”, “Modalidad”, “Fecha de inicio”). Mientras esté vacía, se muestra un aviso de que se publicarán próximamente.
+- `DETALLES_CONVOCATORIA`: lista de `{ etiqueta, valor }` (por ejemplo “Duración”, “Fecha de inicio”, “Horario”). Mientras esté vacía, se muestra un aviso de que se publicarán próximamente.
 - `CONTACTO`: correo, teléfono y sitio web. Los campos vacíos no se muestran en el pie de página.
 - `SITE_URL`: cámbialo por el dominio real si la página se publica (se usa en los metadatos para redes sociales).
 
@@ -59,7 +62,7 @@ Cada sección es un componente en `src/components/`:
 | Sobre el programa       | `src/components/Programa.tsx`    |
 | A quién va dirigido     | `src/components/Dirigido.tsx`    |
 | Beneficios              | `src/components/Beneficios.tsx`  |
-| Cómo inscribirse (QR)   | `src/components/Inscripcion.tsx` |
+| Inscripción (Líneas A y B) | `src/components/Inscripcion.tsx` |
 | Aliados                 | `src/components/Aliados.tsx`     |
 | Pie de página           | `src/components/Footer.tsx`      |
 | Botones, contenedor, estrellas | `src/components/ui.tsx`   |
@@ -71,8 +74,7 @@ El título y la descripción para Google y redes sociales están en `SITE` dentr
 Todas están en `public/images/`:
 
 - `hero-estudiante-robot.webp` / `.jpg`: imagen de portada (recortada del afiche horizontal).
-- `qr-inscripcion.png`: código QR de inscripción (recortado del afiche vertical).
-- `flyers/afiche-horizontal.*` y `flyers/afiche-vertical.*`: afiches oficiales optimizados para web.
+- `flyers/afiche-horizontal.*`: afiche oficial optimizado para web.
 - `logos/`: logos de Campuslands (oficiales, del paquete de marca), y de Gobernación de Santander, Secretaría de Competitividad y Productividad y FondoPaz (recortados de los afiches; si se consiguen los archivos originales en alta calidad, reemplázalos conservando el mismo nombre).
 
 Para cambiar una imagen, reemplaza el archivo con el mismo nombre. Si cambian las proporciones, ajusta `width` y `height` en el componente que la usa.
