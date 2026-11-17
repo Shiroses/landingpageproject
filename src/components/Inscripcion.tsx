@@ -53,36 +53,6 @@ export default function Inscripcion() {
             </div>
 
             <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-3 rounded-[1.5rem] bg-white/[0.03] p-3 ring-1 ring-white/10 sm:p-4">
-              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                <h3 className="flex items-center gap-2 text-sm font-semibold tracking-wide text-sunflower uppercase">
-                  <CalendarClock aria-hidden="true" className="size-5" strokeWidth={1.75} />
-                  Detalles de la convocatoria
-                </h3>
-                {DETALLES_CONVOCATORIA.length > 0 ? (
-                  <dl className="mt-4 grid gap-3 sm:grid-cols-2">
-                    {DETALLES_CONVOCATORIA.map((d) => (
-                      <div key={d.etiqueta}>
-                        <dt className="text-sm text-white/60">{d.etiqueta}</dt>
-                        <dd className="font-semibold">{d.valor}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                ) : (
-                  <p className="mt-2 text-white/75">
-                    Las fechas y horarios del curso se publicarán próximamente por los canales oficiales.
-                  </p>
-                )}
-              </div>
-              <a
-                href={INSCRIPCION_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-lime px-6 py-5 text-lg font-bold text-twilight transition-colors hover:bg-[#6ff08f]"
-              >
-                Inscríbete aquí
-                <ArrowRight aria-hidden="true" className="size-6 transition-transform group-hover:translate-x-1" />
-                <span className="sr-only"> (abre el formulario de inscripción en una nueva pestaña)</span>
-              </a>
               <ul className="grid gap-3 md:grid-cols-2">
                 {lineas.map(({ letra, nombre, icon: Icon, requisitos }) => (
                   <li
@@ -110,6 +80,36 @@ export default function Inscripcion() {
                   </li>
                 ))}
               </ul>
+              <a
+                href={INSCRIPCION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-lime px-6 py-5 text-lg font-bold text-twilight transition-colors hover:bg-[#6ff08f]"
+              >
+                Inscríbete aquí
+                <ArrowRight aria-hidden="true" className="size-6 transition-transform group-hover:translate-x-1" />
+                <span className="sr-only"> (abre el formulario de inscripción en una nueva pestaña)</span>
+              </a>
+              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+                <h3 className="flex items-center gap-2 text-sm font-semibold tracking-wide text-sunflower uppercase">
+                  <CalendarClock aria-hidden="true" className="size-5" strokeWidth={1.75} />
+                  Detalles de la convocatoria
+                </h3>
+                {DETALLES_CONVOCATORIA.length > 0 ? (
+                  <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {DETALLES_CONVOCATORIA.map((d) => (
+                      <div key={d.etiqueta}>
+                        <dt className="text-sm text-white/60">{d.etiqueta}</dt>
+                        <dd className="font-semibold">{d.valor}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                ) : (
+                  <p className="mt-2 text-white/75">
+                    Las fechas y horarios del curso se publicarán próximamente por los canales oficiales.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>

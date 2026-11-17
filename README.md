@@ -34,7 +34,7 @@ Otros comandos:
 
 ### Sección de inscripción (Línea A y Línea B)
 
-Archivo **`src/components/Inscripcion.tsx`** (arreglo `lineas`). Muestra, en un solo bloque: el aviso de “Detalles de la convocatoria”, el botón “Inscríbete aquí” y la información de cada línea:
+Archivo **`src/components/Inscripcion.tsx`** (arreglo `lineas`). Muestra, en un solo bloque y en este orden: la información de cada línea, el botón “Inscríbete aquí” y el aviso de “Detalles de la convocatoria”:
 
 - **Línea A · Programación**: jóvenes de 16 a 28 años, presencial.
 - **Línea B · Inteligencia Artificial**: mayores de 18 años, virtual.
