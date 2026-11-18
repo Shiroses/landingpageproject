@@ -1,18 +1,22 @@
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, BrainCircuit, CircleCheck, CodeXml, MapPin, MonitorSmartphone, Users } from "lucide-react";
-import { INSCRIPCION_URL } from "@/config/site";
+import { INSCRIPCION_LINEA_A_URL, INSCRIPCION_LINEA_B_URL } from "@/config/site";
 import { Container, Eyebrow } from "./ui";
 
 type Ruta = {
   nombre: string;
+  linea: "A" | "B";
   icon: LucideIcon;
   descripcion: string;
   condiciones: { icon: LucideIcon; texto: string }[];
+  url: string;
+  cta: string;
 };
 
 const rutas: Ruta[] = [
   {
     nombre: "Programación",
+    linea: "A",
     icon: CodeXml,
     descripcion:
       "Aprende las bases del desarrollo de software y fortalece tus habilidades para construir soluciones tecnológicas.",
@@ -20,9 +24,12 @@ const rutas: Ruta[] = [
       { icon: Users, texto: "Jóvenes de 16 a 28 años." },
       { icon: MapPin, texto: "Modalidad presencial." },
     ],
+    url: INSCRIPCION_LINEA_A_URL,
+    cta: "Postúlate a la Línea A",
   },
   {
     nombre: "Inteligencia Artificial",
+    linea: "B",
     icon: BrainCircuit,
     descripcion:
       "Conoce herramientas de inteligencia artificial y aprende a utilizarlas para fortalecer tus capacidades digitales y productivas.",
@@ -30,6 +37,8 @@ const rutas: Ruta[] = [
       { icon: Users, texto: "Personas mayores de 18 años." },
       { icon: MonitorSmartphone, texto: "Modalidad virtual." },
     ],
+    url: INSCRIPCION_LINEA_B_URL,
+    cta: "Postúlate a la Línea B",
   },
 ];
 
@@ -60,7 +69,7 @@ export default function Inscripcion() {
 
         {/* Rutas de formación */}
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
-          {rutas.map(({ nombre, icon: Icon, descripcion, condiciones }) => (
+          {rutas.map(({ nombre, linea, icon: Icon, descripcion, condiciones, url, cta }) => (
             <li key={nombre} className="flex flex-col rounded-card bg-white/5 p-6 ring-1 ring-white/15 sm:p-8">
               <div className="flex items-center gap-4">
                 <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-lime/10 text-lime ring-1 ring-lime/30">
@@ -77,6 +86,18 @@ export default function Inscripcion() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-auto pt-8">
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-semibold text-twilight transition-colors hover:bg-[#6ff08f] focus-visible:outline-lime"
+                >
+                  {cta}
+                  <ArrowRight aria-hidden="true" className="size-5 transition-transform group-hover:translate-x-0.5" />
+                  <span className="sr-only"> (abre el formulario de la Línea {linea} en una nueva pestaña)</span>
+                </a>
+              </div>
             </li>
           ))}
         </ul>
@@ -103,26 +124,6 @@ export default function Inscripcion() {
               específicos de edad, modalidad y documentación de la ruta seleccionada.
             </p>
           </div>
-        </div>
-
-        {/* Banner único de inscripción */}
-        <div className="mt-4 flex flex-col items-start gap-6 rounded-card bg-lime p-8 text-twilight sm:p-10 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl">
-            <p className="font-display text-2xl leading-tight font-black sm:text-3xl">Da el siguiente paso hacia tu futuro.</p>
-            <p className="mt-2 text-lg leading-relaxed text-twilight/85">
-              Fortalece tus habilidades tecnológicas y descubre nuevas oportunidades de aprendizaje y desarrollo.
-            </p>
-          </div>
-          <a
-            href={INSCRIPCION_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-twilight px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-ink focus-visible:outline-twilight sm:w-auto"
-          >
-            Realiza tu postulación
-            <ArrowRight aria-hidden="true" className="size-5 transition-transform group-hover:translate-x-0.5" />
-            <span className="sr-only"> (abre el formulario en una nueva pestaña)</span>
-          </a>
         </div>
       </Container>
     </section>

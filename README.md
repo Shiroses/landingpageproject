@@ -46,11 +46,11 @@ El orden sigue la “Propuesta de ajustes” del cliente:
 
 El orden de los bloques se define en `src/app/page.tsx`. Los textos de cada bloque están directamente en su archivo.
 
-Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona de postulación** (bloque 05) con un único botón; el premio se presenta como reconocimiento al modelo Campuslands, no al programa.
+Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona de postulación** (bloque 05), con un botón por ruta (Línea A y Línea B); el premio se presenta como reconocimiento al modelo Campuslands, no al programa.
 
 ## ¿Dónde cambio cada cosa? (`src/config/site.ts`)
 
-- **`INSCRIPCION_URL`**: enlace del formulario de postulación (el mismo para Programación e Inteligencia Artificial). Lo usa el botón “Realiza tu postulación”, que es el único botón de inscripción de la página. El botón “Conoce cómo participar” de la portada y el enlace “Cómo participar” del menú solo llevan a esa sección.
+- **`INSCRIPCION_LINEA_A_URL`** y **`INSCRIPCION_LINEA_B_URL`**: enlaces de los formularios de postulación (Microsoft Forms) de la Línea A (Programación, presencial) y la Línea B (Inteligencia Artificial, virtual). Los usan los botones “Postúlate a la Línea A” y “Postúlate a la Línea B” en cada tarjeta del bloque 05. El botón “Conoce cómo participar” de la portada y el enlace “Cómo participar” del menú solo llevan a esa sección.
 - **`PREMIO.referenciaUrl`**: enlace “Ver publicación” del bloque del premio.
 - **`TESTIMONIO`**: testimonio real de un egresado (foto, nombre, municipio, situación antes, qué aprendió, oportunidad lograda). Está en `null`, así que **la tarjeta no se muestra**. Complétalo solo con una historia real y autorizada; la foto va en `public/images/testimonios/`.
 - **`ENLACES_LEGALES`**: enlaces legales del pie de página (política de datos, etc.). Si la lista está vacía no se muestran.

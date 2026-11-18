@@ -4,11 +4,15 @@
  */
 
 /**
- * Enlace del formulario de postulación (Microsoft Forms).
- * Es el mismo para la ruta de Programación y la de Inteligencia Artificial.
- * Lo usa el único botón de postulación de la página ("Realiza tu postulación").
+ * Enlaces de los formularios de postulación (Microsoft Forms).
+ * Cada ruta tiene su propio formulario: Línea A (Programación, presencial)
+ * y Línea B (Inteligencia Artificial, virtual).
+ * Los usan los botones de cada tarjeta en la sección de inscripción.
  */
-export const INSCRIPCION_URL = "https://forms.cloud.microsoft/r/mZ3awwCtBZ";
+export const INSCRIPCION_LINEA_A_URL =
+  "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=rBA_xpLs3k23KNZAnc4kJ_UkU-CTAfNBguD_O-H5Pd9UOTZST1ZOQ1dKWlpXWVhBQjBQWEY2MkpORC4u";
+export const INSCRIPCION_LINEA_B_URL =
+  "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=rBA_xpLs3k23KNZAnc4kJ_UkU-CTAfNBguD_O-H5Pd9UQVZNMTFYSU1JWEQ4M1ZHUFU0TjJCVFkyTi4u";
 
 /**
  * URL pública del sitio (se usa para metadatos y OpenGraph).
