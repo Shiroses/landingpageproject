@@ -1,10 +1,12 @@
 import Image from "next/image";
-import { Container, InscripcionButton } from "./ui";
+import { Menu } from "lucide-react";
+import { Container } from "./ui";
 
 const links = [
+  { href: "#emprender-paz", label: "Ganadores Emprender Paz" },
   { href: "#programa", label: "El programa" },
-  { href: "#dirigido", label: "¿A quién va dirigido?" },
-  { href: "#beneficios", label: "Beneficios" },
+  { href: "#inscripcion", label: "Cómo participar" },
+  { href: "#historias", label: "Historias" },
   { href: "#aliados", label: "Aliados" },
 ];
 
@@ -28,18 +30,46 @@ export default function Header() {
             preload
           />
         </a>
+
+        {/* Menú de escritorio */}
         <nav aria-label="Secciones" className="hidden lg:block">
-          <ul className="flex items-center gap-8 text-sm font-medium text-white/80">
+          <ul className="flex items-center gap-7 text-sm font-medium text-white/80">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="transition-colors hover:text-white">
+                <a
+                  href={l.href}
+                  className={`transition-colors hover:text-white ${
+                    l.href === "#emprender-paz" ? "text-sunflower hover:text-sunflower" : ""
+                  }`}
+                >
                   {l.label}
                 </a>
               </li>
             ))}
           </ul>
         </nav>
-        <InscripcionButton className="px-4! py-2! text-sm!" label="Inscríbete" />
+
+        {/* Menú móvil (sin JavaScript) */}
+        <details className="group relative lg:hidden">
+          <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-white ring-1 ring-white/25 [&::-webkit-details-marker]:hidden">
+            <Menu aria-hidden="true" className="size-5" />
+            Menú
+          </summary>
+          <nav
+            aria-label="Secciones"
+            className="absolute right-0 mt-2 w-64 rounded-2xl bg-twilight p-2 shadow-[0_8px_32px_rgba(0,0,0,0.35)] ring-1 ring-white/15"
+          >
+            <ul className="flex flex-col text-base text-white">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="block rounded-xl px-4 py-3 hover:bg-white/10">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </details>
       </Container>
     </header>
   );

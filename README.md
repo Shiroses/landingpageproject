@@ -1,8 +1,8 @@
 # Santander Programando Futuro · Landing page
 
-Landing page (tarjeta de presentación) del **Curso de Formación Gratuita en Programación e Inteligencia Artificial** “Santander Programando Futuro”, de la Gobernación de Santander (Secretaría de Competitividad y Productividad), FondoPaz y Campuslands (#HackeandoVidas).
+Landing page de **Santander Programando Futuro**, estrategia de formación gratuita en Programación e Inteligencia Artificial de la Gobernación de Santander (Secretaría de Competitividad y Productividad), en alianza con la Fundación Campuslands y con el apoyo de Fondo Paz (#HackeandoVidas).
 
-Proyecto hecho con **Next.js (App Router) + TypeScript + Tailwind CSS**. Funciona solo en local, sin base de datos ni backend.
+Proyecto hecho con **Next.js (App Router) + TypeScript + Tailwind CSS**. Funciona en local, sin base de datos ni backend.
 
 ## Requisitos
 
@@ -21,65 +21,50 @@ npm run dev
 
 Luego abre <http://localhost:3000> en el navegador.
 
-Otros comandos:
+| Comando         | Qué hace                                          |
+| --------------- | ------------------------------------------------- |
+| `npm run dev`   | Servidor de desarrollo con recarga automática     |
+| `npm run build` | Genera la versión optimizada de producción        |
+| `npm start`     | Sirve la versión de producción (después de build) |
+| `npm run lint`  | Revisa el código con ESLint                       |
 
-| Comando         | Qué hace                                         |
-| --------------- | ------------------------------------------------ |
-| `npm run dev`   | Servidor de desarrollo con recarga automática    |
-| `npm run build` | Genera la versión optimizada de producción       |
-| `npm start`     | Sirve la versión de producción (después de build)|
-| `npm run lint`  | Revisa el código con ESLint                      |
+## Estructura de la página
 
-## ¿Dónde cambio cada cosa?
+El orden sigue la “Propuesta de ajustes” del cliente:
 
-### Sección de inscripción (Línea A y Línea B)
+| #  | Bloque                                   | Archivo                            | Ancla            |
+| -- | ---------------------------------------- | ---------------------------------- | ---------------- |
+| 01 | Franja superior Ganadores Emprender Paz  | `src/components/AnuncioPremio.tsx` | —                |
+| —  | Encabezado y menú                        | `src/components/Header.tsx`        | —                |
+| 02 | Portada principal (llamado a la acción)  | `src/components/Hero.tsx`          | `#inicio`        |
+| 03 | Premio Emprender Paz 2026                | `src/components/EmprenderPaz.tsx`  | `#emprender-paz` |
+| 04 | Sobre el programa + paz (tres cápsulas)  | `src/components/Programa.tsx`      | `#programa`      |
+| 05 | Oferta formativa y postulación           | `src/components/Inscripcion.tsx`   | `#inscripcion`   |
+| 06 | Historias que construyen paz             | `src/components/Historias.tsx`     | `#historias`     |
+| 07 | Alianza institucional (logos)            | `src/components/Aliados.tsx`       | `#aliados`       |
+| 08 | Pie de página                            | `src/components/Footer.tsx`        | —                |
 
-Archivo **`src/components/Inscripcion.tsx`** (arreglo `lineas`). Muestra, en un solo bloque y en este orden: la información de cada línea, el botón “Inscríbete aquí” y el aviso de “Detalles de la convocatoria”:
+El orden de los bloques se define en `src/app/page.tsx`. Los textos de cada bloque están directamente en su archivo.
 
-- **Línea A · Programación**: jóvenes de 16 a 28 años, presencial.
-- **Línea B · Inteligencia Artificial**: mayores de 18 años, virtual.
+Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona de postulación** (bloque 05) con un único botón; el premio se presenta como reconocimiento al modelo Campuslands, no al programa.
 
-El botón “Inscríbete aquí” abre el formulario de inscripción, que es el mismo para ambas líneas. Su enlace está en la constante `INSCRIPCION_URL` de **`src/config/site.ts`**; si el formulario cambia, reemplázalo ahí.
+## ¿Dónde cambio cada cosa? (`src/config/site.ts`)
 
-Los botones “Inscríbete” del encabezado, la portada y el pie de página llevan a esta sección (`#inscripcion`).
+- **`INSCRIPCION_URL`**: enlace del formulario de postulación (el mismo para Programación e Inteligencia Artificial). Lo usa el botón “Realiza tu postulación”, que es el único botón de inscripción de la página. El botón “Conoce cómo participar” de la portada y el enlace “Cómo participar” del menú solo llevan a esa sección.
+- **`PREMIO.referenciaUrl`**: enlace “Ver publicación” del bloque del premio.
+- **`TESTIMONIO`**: testimonio real de un egresado (foto, nombre, municipio, situación antes, qué aprendió, oportunidad lograda). Está en `null`, así que **la tarjeta no se muestra**. Complétalo solo con una historia real y autorizada; la foto va en `public/images/testimonios/`.
+- **`CONTACTO`**: correo, teléfono y sitio web del pie de página. Los campos vacíos no se muestran.
+- **`ENLACES_LEGALES`**: enlaces legales del pie de página (política de datos, etc.). Si la lista está vacía no se muestran.
+- **`SITE`** y **`SITE_URL`**: título, descripción y URL para Google y redes sociales. Cambia `SITE_URL` por el dominio real cuando se publique.
 
-El número de cupos (460) está en la constante `CUPOS` de **`src/config/site.ts`**.
-
-### Datos pendientes (fechas, duración, horarios, contacto)
-
-También en **`src/config/site.ts`**:
-
-- `DETALLES_CONVOCATORIA`: lista de `{ etiqueta, valor }` (por ejemplo “Duración”, “Fecha de inicio”, “Horario”). Mientras esté vacía, se muestra un aviso de que se publicarán próximamente.
-- `CONTACTO`: correo, teléfono y sitio web. Los campos vacíos no se muestran en el pie de página.
-- `SITE_URL`: cámbialo por el dominio real si la página se publica (se usa en los metadatos para redes sociales).
-
-### Textos
-
-Cada sección es un componente en `src/components/`:
-
-| Sección                 | Archivo                          |
-| ----------------------- | -------------------------------- |
-| Encabezado / menú       | `src/components/Header.tsx`      |
-| Portada (hero)          | `src/components/Hero.tsx`        |
-| Sobre el programa       | `src/components/Programa.tsx`    |
-| A quién va dirigido     | `src/components/Dirigido.tsx`    |
-| Beneficios              | `src/components/Beneficios.tsx`  |
-| Inscripción (Líneas A y B) | `src/components/Inscripcion.tsx` |
-| Aliados                 | `src/components/Aliados.tsx`     |
-| Pie de página           | `src/components/Footer.tsx`      |
-| Botones, contenedor, estrellas | `src/components/ui.tsx`   |
-
-El título y la descripción para Google y redes sociales están en `SITE` dentro de `src/config/site.ts`.
-
-### Imágenes
+## Imágenes
 
 Todas están en `public/images/`:
 
-- `hero-estudiante-robot.webp` / `.jpg`: imagen de portada (recortada del afiche horizontal).
-- `flyers/afiche-horizontal.*`: afiche oficial optimizado para web.
-- `logos/`: logos de Campuslands (oficiales, del paquete de marca), y de Gobernación de Santander, Secretaría de Competitividad y Productividad y FondoPaz (recortados de los afiches; si se consiguen los archivos originales en alta calidad, reemplázalos conservando el mismo nombre).
-
-Para cambiar una imagen, reemplaza el archivo con el mismo nombre. Si cambian las proporciones, ajusta `width` y `height` en el componente que la usa.
+- `hero-estudiante-robot.webp` / `.jpg`: imagen de portada (recortada del afiche de la convocatoria). La propuesta recomienda reemplazarla por una **fotografía real de estudiantes**; usa el mismo nombre o ajusta `src`, `width` y `height` en `Hero.tsx`.
+- `premio-emprender-paz-2026.webp`: placa del Premio Emprender Paz 2026. Puede reemplazarse por la fotografía oficial de la entrega del 12 de noviembre de 2026.
+- `logos/emprender-paz.png`: logo del premio, recortado de la placa. Si se obtiene el archivo oficial, reemplázalo con el mismo nombre.
+- `logos/`: logos de Campuslands (oficiales, del paquete de marca) y de Gobernación de Santander, Secretaría de Competitividad y Productividad y Fondo Paz (recortados de los afiches; conviene reemplazarlos por los originales autorizados).
 
 El ícono de la pestaña (`src/app/icon.png`, `src/app/apple-icon.png`, `src/app/favicon.ico`) y la imagen para compartir en redes (`src/app/opengraph-image.jpg`) también se pueden reemplazar con archivos del mismo nombre.
 
@@ -87,7 +72,15 @@ El ícono de la pestaña (`src/app/icon.png`, `src/app/apple-icon.png`, `src/app
 
 Basado en el Manual Visual de Campuslands y los afiches de la convocatoria:
 
-- Colores (definidos en `src/app/globals.css`): Seaweed `#00AA80`, Stormy Teal `#16697A`, Deep Twilight `#0F084B`, Sunflower Gold `#F4B422` (acento), blanco y negro, más el verde brillante de los afiches `#3EE06B`.
+- Colores (en `src/app/globals.css`): Seaweed `#00AA80`, Stormy Teal `#16697A`, Deep Twilight `#0F084B`, Sunflower Gold `#F4B422` (acento), blanco y negro, más el verde brillante de los afiches `#3EE06B`.
 - Tipografía de texto: **Poppins**.
-- Tipografía de titulares: el manual indica **Sugo Classic**, que es una fuente comercial y no está en Google Fonts. Se usa **Montserrat** (pesos 700–900) como alternativa libre. Si tienen la licencia de Sugo Classic, se puede cargar con `next/font/local` en `src/app/layout.tsx` en lugar de Montserrat.
+- Tipografía de titulares: el manual indica **Sugo Classic**, fuente comercial que no está en Google Fonts. Se usa **Montserrat** (700–900) como alternativa libre. Si tienen la licencia, se puede cargar con `next/font/local` en `src/app/layout.tsx`.
 - Íconos lineales monocromáticos de [lucide-react](https://lucide.dev).
+
+## Pendiente antes de publicar
+
+- Fotografía real de estudiantes para la portada.
+- Fotografía oficial de la premiación y logo oficial del Premio Emprender Paz.
+- Testimonio real y autorizado (`TESTIMONIO`).
+- Canales de contacto (`CONTACTO`) y enlaces legales (`ENLACES_LEGALES`).
+- Validar edades, modalidades y requisitos de cada ruta con la convocatoria definitiva, y los logos autorizados.

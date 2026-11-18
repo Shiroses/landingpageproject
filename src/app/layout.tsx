@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     "inteligencia artificial",
     "Gobernación de Santander",
     "Fondo Paz",
+    "Premio Emprender Paz",
     "Campuslands",
     "víctimas del conflicto armado",
     "firmantes de paz",

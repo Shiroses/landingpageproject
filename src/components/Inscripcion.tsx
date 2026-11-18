@@ -1,117 +1,128 @@
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, BrainCircuit, CalendarClock, CodeXml, MapPin, MonitorSmartphone, Users } from "lucide-react";
-import { CUPOS, DETALLES_CONVOCATORIA, INSCRIPCION_URL } from "@/config/site";
+import { ArrowRight, BrainCircuit, CircleCheck, CodeXml, MapPin, MonitorSmartphone, Users } from "lucide-react";
+import { INSCRIPCION_URL } from "@/config/site";
 import { Container, Eyebrow } from "./ui";
 
-type Linea = {
-  letra: "A" | "B";
+type Ruta = {
   nombre: string;
   icon: LucideIcon;
-  requisitos: { icon: LucideIcon; texto: string }[];
+  descripcion: string;
+  condiciones: { icon: LucideIcon; texto: string }[];
 };
 
-const lineas: Linea[] = [
+const rutas: Ruta[] = [
   {
-    letra: "A",
     nombre: "Programación",
     icon: CodeXml,
-    requisitos: [
-      { icon: Users, texto: "Jóvenes de 16 a 28 años" },
-      { icon: MapPin, texto: "Presencial" },
+    descripcion:
+      "Aprende las bases del desarrollo de software y fortalece tus habilidades para construir soluciones tecnológicas.",
+    condiciones: [
+      { icon: Users, texto: "Jóvenes de 16 a 28 años." },
+      { icon: MapPin, texto: "Modalidad presencial." },
     ],
   },
   {
-    letra: "B",
     nombre: "Inteligencia Artificial",
     icon: BrainCircuit,
-    requisitos: [
-      { icon: Users, texto: "Mayores de 18 años" },
-      { icon: MonitorSmartphone, texto: "Virtual" },
+    descripcion:
+      "Conoce herramientas de inteligencia artificial y aprende a utilizarlas para fortalecer tus capacidades digitales y productivas.",
+    condiciones: [
+      { icon: Users, texto: "Personas mayores de 18 años." },
+      { icon: MonitorSmartphone, texto: "Modalidad virtual." },
     ],
   },
 ];
 
+const poblaciones = [
+  "Víctimas del conflicto armado",
+  "Firmantes de paz",
+  "Personas en reincorporación y reintegración",
+  "Líderes sociales",
+  "Demás población habilitada por Fondo Paz",
+];
+
+/** Bloque 5: Oferta formativa y postulación. Única zona de inscripción de la página. */
 export default function Inscripcion() {
   return (
-    <section id="inscripcion" aria-labelledby="inscripcion-title" className="bg-white py-20 sm:py-24">
-      <Container>
-        <div className="relative overflow-hidden rounded-[1.5rem] bg-ink px-6 py-12 text-white sm:px-10 lg:px-16 lg:py-16">
-          <div aria-hidden="true" className="bg-grid absolute inset-0" />
-          <div aria-hidden="true" className="absolute -right-32 -bottom-32 size-96 rounded-full bg-seaweed/25 blur-3xl" />
+    <section id="inscripcion" aria-labelledby="inscripcion-title" className="relative overflow-hidden bg-ink py-20 text-white sm:py-24">
+      <div aria-hidden="true" className="bg-grid absolute inset-0" />
+      <div aria-hidden="true" className="absolute -right-40 top-1/3 size-[420px] rounded-full bg-seaweed/20 blur-3xl" />
+      <Container className="relative">
+        <div className="max-w-3xl">
+          <Eyebrow dark>Oferta formativa y postulación</Eyebrow>
+          <h2 id="inscripcion-title" className="font-display text-3xl leading-tight font-extrabold sm:text-4xl">
+            Elige las habilidades con las que quieres transformar tu futuro.
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-white/80">
+            Conoce las oportunidades de formación gratuita de Santander Programando Futuro y descubre cómo participar.
+          </p>
+        </div>
 
-          <div className="relative">
-            <div className="mx-auto max-w-2xl text-center">
-              <Eyebrow dark>Cupos de formación gratuita</Eyebrow>
-              <h2 id="inscripcion-title" className="font-display text-3xl leading-tight font-extrabold sm:text-4xl">
-                Elige tu línea de formación
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-white/80">
-                Santander Programando Futuro 2026 ofrece{" "}
-                <strong className="text-white">{CUPOS} cupos de formación gratuita</strong>. Conoce las dos líneas e
-                inscríbete con el formulario.
-              </p>
-            </div>
-
-            <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-3 rounded-[1.5rem] bg-white/[0.03] p-3 ring-1 ring-white/10 sm:p-4">
-              <ul className="grid gap-3 md:grid-cols-2">
-                {lineas.map(({ letra, nombre, icon: Icon, requisitos }) => (
-                  <li
-                    key={letra}
-                    className="flex flex-col rounded-2xl bg-white/5 p-6 ring-1 ring-white/15 sm:p-8"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-sm font-semibold tracking-wide text-lime uppercase">Línea {letra}</p>
-                        <h3 className="font-display mt-2 text-2xl leading-tight font-extrabold sm:text-3xl">{nombre}</h3>
-                      </div>
-                      <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-lime/10 text-lime ring-1 ring-lime/30">
-                        <Icon aria-hidden="true" className="size-7" strokeWidth={1.5} />
-                      </span>
-                    </div>
-
-                    <ul className="mt-6 space-y-3" aria-label={`Requisitos de la Línea ${letra}`}>
-                      {requisitos.map(({ icon: RIcon, texto }) => (
-                        <li key={texto} className="flex items-center gap-3 text-base text-white/90">
-                          <RIcon aria-hidden="true" className="size-5 shrink-0 text-sunflower" strokeWidth={1.75} />
-                          {texto}
-                        </li>
-                      ))}
-                    </ul>
+        {/* Rutas de formación */}
+        <ul className="mt-12 grid gap-4 md:grid-cols-2">
+          {rutas.map(({ nombre, icon: Icon, descripcion, condiciones }) => (
+            <li key={nombre} className="flex flex-col rounded-card bg-white/5 p-6 ring-1 ring-white/15 sm:p-8">
+              <div className="flex items-center gap-4">
+                <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-lime/10 text-lime ring-1 ring-lime/30">
+                  <Icon aria-hidden="true" className="size-7" strokeWidth={1.5} />
+                </span>
+                <h3 className="font-display text-2xl leading-tight font-extrabold sm:text-3xl">{nombre}</h3>
+              </div>
+              <p className="mt-5 leading-relaxed text-white/80">{descripcion}</p>
+              <ul className="mt-6 space-y-3 border-t border-white/10 pt-5" aria-label={`Condiciones de la ruta ${nombre}`}>
+                {condiciones.map(({ icon: CIcon, texto }) => (
+                  <li key={texto} className="flex items-center gap-3 font-medium">
+                    <CIcon aria-hidden="true" className="size-5 shrink-0 text-sunflower" strokeWidth={1.75} />
+                    {texto}
                   </li>
                 ))}
               </ul>
-              <a
-                href={INSCRIPCION_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-lime px-6 py-5 text-lg font-bold text-twilight transition-colors hover:bg-[#6ff08f]"
-              >
-                Inscríbete aquí
-                <ArrowRight aria-hidden="true" className="size-6 transition-transform group-hover:translate-x-1" />
-                <span className="sr-only"> (abre el formulario de inscripción en una nueva pestaña)</span>
-              </a>
-              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                <h3 className="flex items-center gap-2 text-sm font-semibold tracking-wide text-sunflower uppercase">
-                  <CalendarClock aria-hidden="true" className="size-5" strokeWidth={1.75} />
-                  Detalles de la convocatoria
-                </h3>
-                {DETALLES_CONVOCATORIA.length > 0 ? (
-                  <dl className="mt-4 grid gap-3 sm:grid-cols-2">
-                    {DETALLES_CONVOCATORIA.map((d) => (
-                      <div key={d.etiqueta}>
-                        <dt className="text-sm text-white/60">{d.etiqueta}</dt>
-                        <dd className="font-semibold">{d.valor}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                ) : (
-                  <p className="mt-2 text-white/75">
-                    Las fechas y horarios del curso se publicarán próximamente por los canales oficiales.
-                  </p>
-                )}
-              </div>
-            </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* Destinatarios y requisitos */}
+        <div className="mt-4 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
+          <div className="rounded-card bg-white/5 p-6 ring-1 ring-white/15 sm:p-8">
+            <h3 className="font-display text-xl font-bold">¿A quién va dirigido?</h3>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {poblaciones.map((p) => (
+                <li key={p} className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/15">
+                  {p}
+                </li>
+              ))}
+            </ul>
           </div>
+          <div className="rounded-card bg-white/5 p-6 ring-1 ring-white/15 sm:p-8">
+            <h3 className="font-display flex items-center gap-2 text-xl font-bold">
+              <CircleCheck aria-hidden="true" className="size-6 text-lime" strokeWidth={1.75} />
+              ¿Qué necesitas para participar?
+            </h3>
+            <p className="mt-4 leading-relaxed text-white/80">
+              Residir en Santander, pertenecer a alguna de las poblaciones priorizadas y cumplir los requisitos
+              específicos de edad, modalidad y documentación de la ruta seleccionada.
+            </p>
+          </div>
+        </div>
+
+        {/* Banner único de inscripción */}
+        <div className="mt-4 flex flex-col items-start gap-6 rounded-card bg-lime p-8 text-twilight sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <p className="font-display text-2xl leading-tight font-black sm:text-3xl">Da el siguiente paso hacia tu futuro.</p>
+            <p className="mt-2 text-lg leading-relaxed text-twilight/85">
+              Fortalece tus habilidades tecnológicas y descubre nuevas oportunidades de aprendizaje y desarrollo.
+            </p>
+          </div>
+          <a
+            href={INSCRIPCION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-twilight px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-ink focus-visible:outline-twilight sm:w-auto"
+          >
+            Realiza tu postulación
+            <ArrowRight aria-hidden="true" className="size-5 transition-transform group-hover:translate-x-0.5" />
+            <span className="sr-only"> (abre el formulario en una nueva pestaña)</span>
+          </a>
         </div>
       </Container>
     </section>

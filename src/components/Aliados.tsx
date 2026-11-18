@@ -14,7 +14,7 @@ const aliados = [
     width: 600,
     height: 172,
   },
-  { nombre: "FondoPaz", src: "/images/logos/fondopaz.png", width: 300, height: 299 },
+  { nombre: "Fondo Paz", src: "/images/logos/fondopaz.png", width: 300, height: 299 },
   { nombre: "Campuslands", src: "/images/logos/campuslands-horizontal-azul.png", width: 1200, height: 375 },
 ];
 
@@ -22,14 +22,22 @@ export default function Aliados() {
   return (
     <section id="aliados" aria-labelledby="aliados-title" className="border-t border-twilight/10 bg-white py-20 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Aliados</Eyebrow>
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Alianza institucional</Eyebrow>
           <h2 id="aliados-title" className="font-display text-3xl leading-tight font-extrabold text-twilight sm:text-4xl">
-            Una alianza por el futuro de Santander
+            Una alianza por la PAZ y por el futuro de la productividad y competitividad de Santander.
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-twilight/75">
-            Este programa es posible gracias al trabajo conjunto de entidades públicas y del sector tecnológico.
-          </p>
+          <div className="mt-4 space-y-3 text-lg leading-relaxed text-twilight/75">
+            <p>
+              Santander Programando Futuro articula esfuerzos institucionales para ampliar el acceso a la educación
+              tecnológica, promover la inclusión productiva y fortalecer las capacidades de poblaciones priorizadas del
+              departamento.
+            </p>
+            <p>
+              Una apuesta en la que la formación y la generación de oportunidades se convierten en herramientas para
+              construir paz y avanzar hacia un Santander más competitivo.
+            </p>
+          </div>
         </div>
 
         <ul className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
