@@ -57,6 +57,17 @@ export default function Aliados() {
             </li>
           ))}
         </ul>
+
+        <figure className="mt-12 overflow-hidden rounded-3xl">
+          <Image
+            src="/images/hero-grupo-estudiantes.webp"
+            alt="Grupo de estudiantes de Santander Programando Futuro"
+            width={1400}
+            height={823}
+            sizes="(min-width: 1024px) 1152px, 100vw"
+            className="h-auto w-full"
+          />
+        </figure>
       </Container>
     </section>
   );

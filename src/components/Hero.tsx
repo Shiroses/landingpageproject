@@ -14,11 +14,11 @@ export default function Hero() {
     <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden bg-ink text-white">
       <div aria-hidden="true" className="bg-grid absolute inset-0" />
       <div aria-hidden="true" className="absolute -top-40 -left-40 size-[480px] rounded-full bg-teal/40 blur-3xl" />
-      <Container className="relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_1.1fr] lg:py-24">
+      <Container className="relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24">
         <div>
           <h1
             id="hero-title"
-            className="font-display text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[3.1rem]"
+            className="font-display text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[3.4rem]"
           >
             ¿Quieres mejorar tu perfil laboral y acceder a{" "}
             <span className="text-lime">nuevas oportunidades?</span>
@@ -62,11 +62,11 @@ export default function Hero() {
 
         <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10">
           <Image
-            src="/images/hero-grupo-estudiantes.webp"
-            alt="Foto grupal de estudiantes de Santander Programando Futuro con camisetas negras del programa, reunidos en un salón con ventanales y montañas de fondo"
+            src="/images/hero-estudiante-robot.webp"
+            alt="Joven con gafas estudiando frente a un portátil junto a un robot humanoide, con líneas de código de fondo"
             width={1400}
-            height={823}
-            sizes="(min-width: 1024px) 600px, 100vw"
+            height={1260}
+            sizes="(min-width: 1024px) 540px, 100vw"
             className="h-auto w-full"
             preload
           />
