@@ -22,16 +22,16 @@ export default function EmprenderPaz() {
         </p>
 
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <figure className="overflow-hidden rounded-3xl bg-black ring-1 ring-twilight/10">
+          <figure className="mx-auto w-full max-w-sm lg:max-w-md">
             <Image
-              src="/images/premio-emprender-paz-2026.webp"
+              src="/images/premio-emprender-paz-2026-transparente.webp"
               alt="Placa de cristal de la 19ª edición del Premio Emprender Paz, liderado por la Fundación Grupo Social: Ganador Campuslands, 12 de noviembre de 2026"
-              width={900}
-              height={1183}
+              width={800}
+              height={1071}
               sizes="(min-width: 1024px) 440px, 100vw"
-              className="mx-auto h-auto w-full max-w-md"
+              className="mx-auto h-auto w-full drop-shadow-[0_16px_24px_rgba(15,8,75,0.18)]"
             />
-            <figcaption className="bg-twilight px-6 py-4 text-sm text-white/80">
+            <figcaption className="mt-4 text-center text-sm text-twilight/70">
               19ª edición del Premio Emprender Paz · 12 de noviembre de 2026
             </figcaption>
           </figure>

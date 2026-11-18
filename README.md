@@ -62,7 +62,7 @@ Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona 
 Todas están en `public/images/`:
 
 - `hero-estudiante-robot.webp` / `.jpg`: imagen de portada (recortada del afiche de la convocatoria). La propuesta recomienda reemplazarla por una **fotografía real de estudiantes**; usa el mismo nombre o ajusta `src`, `width` y `height` en `Hero.tsx`.
-- `premio-emprender-paz-2026.webp`: placa del Premio Emprender Paz 2026. Puede reemplazarse por la fotografía oficial de la entrega del 12 de noviembre de 2026.
+- `premio-emprender-paz-2026-transparente.webp`: placa del Premio Emprender Paz 2026 con fondo transparente. Puede reemplazarse por la fotografía oficial de la entrega del 12 de noviembre de 2026.
 - `logos/emprender-paz.png`: logo del premio, recortado de la placa. Si se obtiene el archivo oficial, reemplázalo con el mismo nombre.
 - `logos/`: logos de Campuslands (oficiales, del paquete de marca) y de Gobernación de Santander, Secretaría de Competitividad y Productividad y Fondo Paz (recortados de los afiches; conviene reemplazarlos por los originales autorizados).
 
