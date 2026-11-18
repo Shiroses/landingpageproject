@@ -1,12 +1,9 @@
 import Image from "next/image";
-import { Globe, Mail, Phone } from "lucide-react";
-import { CONTACTO, ENLACES_LEGALES, SITE } from "@/config/site";
+import { ENLACES_LEGALES, SITE } from "@/config/site";
 import { Container } from "./ui";
 
 /** Bloque 8: pie de página. Cierre institucional, sin botón de inscripción. */
 export default function Footer() {
-  const hayContacto = Boolean(CONTACTO.correo || CONTACTO.telefono || CONTACTO.sitioWeb);
-
   return (
     <footer className="bg-ink text-white">
       <Container className="grid gap-10 py-14 md:grid-cols-[1.4fr_1fr] md:items-start">
@@ -28,34 +25,6 @@ export default function Footer() {
             className="h-8 w-auto md:ml-auto"
           />
           <p className="font-semibold text-lime">{SITE.hashtag}</p>
-          {hayContacto && (
-            <ul className="space-y-2 text-sm text-white/80" aria-label="Canales de contacto">
-              {CONTACTO.correo && (
-                <li className="flex items-center gap-2 md:justify-end">
-                  <Mail aria-hidden="true" className="size-4" />
-                  <a href={`mailto:${CONTACTO.correo}`} className="hover:text-white">
-                    {CONTACTO.correo}
-                  </a>
-                </li>
-              )}
-              {CONTACTO.telefono && (
-                <li className="flex items-center gap-2 md:justify-end">
-                  <Phone aria-hidden="true" className="size-4" />
-                  <a href={`tel:${CONTACTO.telefono.replace(/\s/g, "")}`} className="hover:text-white">
-                    {CONTACTO.telefono}
-                  </a>
-                </li>
-              )}
-              {CONTACTO.sitioWeb && (
-                <li className="flex items-center gap-2 md:justify-end">
-                  <Globe aria-hidden="true" className="size-4" />
-                  <a href={CONTACTO.sitioWeb} className="hover:text-white">
-                    {CONTACTO.sitioWeb}
-                  </a>
-                </li>
-              )}
-            </ul>
-          )}
         </div>
       </Container>
       <div className="border-t border-white/10">

@@ -59,16 +59,6 @@ export type Testimonio = {
 export const TESTIMONIO: Testimonio | null = null;
 
 /**
- * Datos de contacto (opcional).
- * TODO: completar con canales oficiales. Los campos vacíos no se muestran.
- */
-export const CONTACTO = {
-  correo: "",
-  telefono: "",
-  sitioWeb: "",
-};
-
-/**
  * Enlaces legales del pie de página (política de privacidad, tratamiento de datos, etc.).
  * TODO: agregar cuando existan. Si la lista está vacía, no se muestran.
  * Ejemplo: { etiqueta: "Política de tratamiento de datos", url: "https://..." }

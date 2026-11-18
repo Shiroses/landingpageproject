@@ -53,7 +53,6 @@ Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona 
 - **`INSCRIPCION_URL`**: enlace del formulario de postulación (el mismo para Programación e Inteligencia Artificial). Lo usa el botón “Realiza tu postulación”, que es el único botón de inscripción de la página. El botón “Conoce cómo participar” de la portada y el enlace “Cómo participar” del menú solo llevan a esa sección.
 - **`PREMIO.referenciaUrl`**: enlace “Ver publicación” del bloque del premio.
 - **`TESTIMONIO`**: testimonio real de un egresado (foto, nombre, municipio, situación antes, qué aprendió, oportunidad lograda). Está en `null`, así que **la tarjeta no se muestra**. Complétalo solo con una historia real y autorizada; la foto va en `public/images/testimonios/`.
-- **`CONTACTO`**: correo, teléfono y sitio web del pie de página. Los campos vacíos no se muestran.
 - **`ENLACES_LEGALES`**: enlaces legales del pie de página (política de datos, etc.). Si la lista está vacía no se muestran.
 - **`SITE`** y **`SITE_URL`**: título, descripción y URL para Google y redes sociales. Cambia `SITE_URL` por el dominio real cuando se publique.
 
@@ -61,12 +60,12 @@ Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona 
 
 Todas están en `public/images/`:
 
-- `hero-estudiante-robot.webp` / `.jpg`: imagen de portada (recortada del afiche de la convocatoria). La propuesta recomienda reemplazarla por una **fotografía real de estudiantes**; usa el mismo nombre o ajusta `src`, `width` y `height` en `Hero.tsx`.
+- `hero-grupo-estudiantes.webp`: fotografía real del grupo de estudiantes del programa usada en la portada. Para cambiarla, reemplaza el archivo (mejor con un nombre nuevo, para evitar la caché de imágenes de Next.js) y ajusta `src`, `width` y `height` en `Hero.tsx`.
 - `premio-emprender-paz-2026-transparente.webp`: placa del Premio Emprender Paz 2026 con fondo transparente. Puede reemplazarse por la fotografía oficial de la entrega del 12 de noviembre de 2026.
 - `logos/emprender-paz.png`: logo del premio, recortado de la placa. Si se obtiene el archivo oficial, reemplázalo con el mismo nombre.
 - `logos/`: logos de Campuslands (oficiales, del paquete de marca) y de Gobernación de Santander, Secretaría de Competitividad y Productividad y Fondo Paz (recortados de los afiches; conviene reemplazarlos por los originales autorizados).
 
-El ícono de la pestaña (`src/app/icon.png`, `src/app/apple-icon.png`, `src/app/favicon.ico`) y la imagen para compartir en redes (`src/app/opengraph-image.jpg`) también se pueden reemplazar con archivos del mismo nombre.
+El ícono de la pestaña (`src/app/icon.png`, `src/app/apple-icon.png`, `src/app/favicon.ico`) y la imagen para compartir en redes (`src/app/opengraph-image.jpg`, recorte 1200×630 de la foto grupal) también se pueden reemplazar con archivos del mismo nombre.
 
 ## Marca y diseño
 
@@ -79,8 +78,7 @@ Basado en el Manual Visual de Campuslands y los afiches de la convocatoria:
 
 ## Pendiente antes de publicar
 
-- Fotografía real de estudiantes para la portada.
 - Fotografía oficial de la premiación y logo oficial del Premio Emprender Paz.
 - Testimonio real y autorizado (`TESTIMONIO`).
-- Canales de contacto (`CONTACTO`) y enlaces legales (`ENLACES_LEGALES`).
+- Enlaces legales (`ENLACES_LEGALES`), si se requieren.
 - Validar edades, modalidades y requisitos de cada ruta con la convocatoria definitiva, y los logos autorizados.
