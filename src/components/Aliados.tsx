@@ -27,7 +27,10 @@ export default function Aliados() {
           <h2 id="aliados-title" className="font-display text-3xl leading-tight font-extrabold text-twilight sm:text-4xl">
             Una alianza por la PAZ y por el futuro de la productividad y competitividad de Santander.
           </h2>
-          <div className="mt-4 space-y-3 text-lg leading-relaxed text-twilight/75">
+        </div>
+
+        <div className="mt-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="space-y-3 text-lg leading-relaxed text-twilight/75">
             <p>
               Santander Programando Futuro articula esfuerzos institucionales para ampliar el acceso a la educación
               tecnológica, promover la inclusión productiva y fortalecer las capacidades de poblaciones priorizadas del
@@ -38,6 +41,17 @@ export default function Aliados() {
               construir paz y avanzar hacia un Santander más competitivo.
             </p>
           </div>
+
+          <figure className="overflow-hidden rounded-3xl">
+            <Image
+              src="/images/hero-grupo-estudiantes.webp"
+              alt="Grupo de estudiantes de Santander Programando Futuro"
+              width={1400}
+              height={823}
+              sizes="(min-width: 1024px) 540px, 100vw"
+              className="h-auto w-full"
+            />
+          </figure>
         </div>
 
         <ul className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -57,17 +71,6 @@ export default function Aliados() {
             </li>
           ))}
         </ul>
-
-        <figure className="mt-12 overflow-hidden rounded-3xl">
-          <Image
-            src="/images/hero-grupo-estudiantes.webp"
-            alt="Grupo de estudiantes de Santander Programando Futuro"
-            width={1400}
-            height={823}
-            sizes="(min-width: 1024px) 1152px, 100vw"
-            className="h-auto w-full"
-          />
-        </figure>
       </Container>
     </section>
   );
