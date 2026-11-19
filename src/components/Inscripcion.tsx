@@ -46,7 +46,7 @@ const poblaciones = [
   "Víctimas del conflicto armado",
   "Firmantes de paz",
   "Personas en reincorporación y reintegración",
-  "Líderes en derechos humanos",
+  "Líderes sociales de derechos humanos",
   "Demás población habilitada por Fondo Paz",
 ];
 
