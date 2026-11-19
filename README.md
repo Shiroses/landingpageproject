@@ -46,6 +46,8 @@ El orden sigue la “Propuesta de ajustes” del cliente:
 
 El orden de los bloques se define en `src/app/page.tsx`. Los textos de cada bloque están directamente en su archivo.
 
+Hay una página aparte en `/marco-normativo` (`src/app/marco-normativo/page.tsx`, contenido en `src/components/MarcoNormativo.tsx`) con el respaldo normativo del programa. El menú del encabezado enlaza a esa página. Las leyes y decretos nacionales apuntan al Gestor Normativo de Función Pública; la Ordenanza 062 de 2017 está en `public/docs/ordenanza-062-2017.pdf`.
+
 Lineamientos aplicados: no se muestran cantidades de cupos; hay **una sola zona de postulación** (bloque 05), con un botón por ruta (Línea A y Línea B); el premio se presenta como reconocimiento al modelo Campuslands, no al programa.
 
 ## ¿Dónde cambio cada cosa? (`src/config/site.ts`)

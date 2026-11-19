@@ -3,11 +3,12 @@ import { Menu } from "lucide-react";
 import { Container } from "./ui";
 
 const links = [
-  { href: "#emprender-paz", label: "Ganadores Emprender Paz" },
-  { href: "#programa", label: "El programa" },
-  { href: "#inscripcion", label: "Cómo participar" },
-  { href: "#historias", label: "Historias" },
-  { href: "#aliados", label: "Aliados" },
+  { href: "/#emprender-paz", label: "Ganadores Emprender Paz" },
+  { href: "/#programa", label: "El programa" },
+  { href: "/#inscripcion", label: "Cómo participar" },
+  { href: "/#historias", label: "Historias" },
+  { href: "/#aliados", label: "Aliados" },
+  { href: "/marco-normativo", label: "Respaldo normativo" },
 ];
 
 export default function Header() {
@@ -20,7 +21,7 @@ export default function Header() {
         Saltar al contenido
       </a>
       <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="#inicio" className="flex items-center" aria-label="Santander Programando Futuro, ir al inicio">
+        <a href="/#inicio" className="flex items-center" aria-label="Santander Programando Futuro, ir al inicio">
           <Image
             src="/images/logos/campuslands-horizontal-blanco.png"
             alt="Campuslands"
@@ -33,13 +34,13 @@ export default function Header() {
 
         {/* Menú de escritorio */}
         <nav aria-label="Secciones" className="hidden lg:block">
-          <ul className="flex items-center gap-7 text-sm font-medium text-white/80">
+          <ul className="flex items-center gap-5 text-sm font-medium text-white/80 xl:gap-7">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   className={`transition-colors hover:text-white ${
-                    l.href === "#emprender-paz" ? "text-sunflower hover:text-sunflower" : ""
+                    l.href === "/#emprender-paz" ? "text-sunflower hover:text-sunflower" : ""
                   }`}
                 >
                   {l.label}
