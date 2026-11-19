@@ -74,7 +74,7 @@ export default function MarcoNormativo() {
 
         <ul className="mt-14 grid gap-6 md:grid-cols-2">
           {normas.map(({ titulo, establece, contribuye, href, enlace, esPdf }) => (
-            <li key={titulo} className="flex flex-col rounded-card border border-twilight/10 bg-mist p-6 sm:p-8">
+            <li key={titulo} className="flex flex-col md:last:col-span-2 rounded-card border border-twilight/10 bg-mist p-6 sm:p-8">
               <h2 className="font-display text-xl leading-snug font-bold text-twilight">{titulo}</h2>
               <p className="mt-5 leading-relaxed text-twilight/80">
                 <strong className="font-semibold text-twilight">Qué establece: </strong>
