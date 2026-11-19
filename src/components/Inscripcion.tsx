@@ -44,10 +44,10 @@ const rutas: Ruta[] = [
 
 const poblaciones = [
   "Víctimas del conflicto armado",
-  "Firmantes de paz",
-  "Personas en reincorporación y reintegración",
-  "Líderes sociales de derechos humanos",
-  "Demás población habilitada por Fondo Paz",
+  "Firmantes de paz y personas en reincorporación",
+  "Personas reinsertadas, desmovilizadas o en reintegración",
+  "Comparecientes ante la JEP, incluida la Fuerza Pública",
+  "Defensores de derechos humanos, lideres y lideresas",
 ];
 
 /** Bloque 5: Oferta formativa y postulación. Única zona de inscripción de la página. */
