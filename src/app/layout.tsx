@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import { SITE, SITE_URL } from "@/config/site";
+import WhatsAppFlotante from "@/components/WhatsAppFlotante";
 import "./globals.css";
 
 // Tipografía de texto del Manual de Marca Campuslands.
@@ -58,7 +59,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-CO" className={`${poppins.variable} ${montserrat.variable} antialiased`}>
-      <body className="min-h-dvh bg-white text-twilight">{children}</body>
+      <body className="min-h-dvh bg-white text-twilight">
+        {children}
+        <WhatsAppFlotante />
+      </body>
     </html>
   );
 }

@@ -21,20 +21,33 @@ export default function Header() {
         Saltar al contenido
       </a>
       <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="/#inicio" className="flex items-center" aria-label="Santander Programando Futuro, ir al inicio">
+        <a
+          href="/#inicio"
+          className="flex shrink-0 items-center gap-3 sm:gap-4"
+          aria-label="Santander Programando Futuro, ir al inicio"
+        >
           <Image
             src="/images/logos/campuslands-horizontal-blanco.png"
             alt="Campuslands"
             width={1200}
             height={237}
-            className="h-6 w-auto sm:h-7"
+            className="h-5 w-auto sm:h-7"
+            preload
+          />
+          <span aria-hidden="true" className="h-7 w-px bg-white/30 sm:h-8" />
+          <Image
+            src="/images/logos/gobernacion-santander-blanco.png"
+            alt="Gobernación de Santander"
+            width={700}
+            height={218}
+            className="h-8 w-auto sm:h-10"
             preload
           />
         </a>
 
         {/* Menú de escritorio */}
-        <nav aria-label="Secciones" className="hidden lg:block">
-          <ul className="flex items-center gap-5 text-sm font-medium text-white/80 xl:gap-7">
+        <nav aria-label="Secciones" className="hidden xl:block">
+          <ul className="flex items-center gap-5 text-sm font-medium whitespace-nowrap text-white/80 2xl:gap-7">
             {links.map((l) => (
               <li key={l.href}>
                 <a
@@ -51,7 +64,7 @@ export default function Header() {
         </nav>
 
         {/* Menú móvil (sin JavaScript) */}
-        <details className="group relative lg:hidden">
+        <details className="group relative xl:hidden">
           <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-white ring-1 ring-white/25 [&::-webkit-details-marker]:hidden">
             <Menu aria-hidden="true" className="size-5" />
             Menú
